@@ -1,6 +1,6 @@
 #include<iostream>
 #include<cmath>
-
+using namespace std;
 //function to check if integer is prime.
 //returns 1 for prime. 0 otherwise.
 int is_prime(int n)
@@ -25,27 +25,30 @@ int main()
 {
 	int t;
 	cin>>t;
-	
-	int len=ceil(log10(n));
-	int i,flag=0;
-	
-	for(i=0;i<len;i++)
+	while(t--)
 	{
-		if(is_prime(n)!=1)
+		int n;
+		cin>>n;
+		int len=ceil(log10(n));
+		int i,flag=0;
+		
+		for(i=0;i<len;i++)
 		{
-			flag=1;
-			break;
+			if(is_prime(n)!=1)
+			{
+				flag=1;
+				break;
+			}
+			int d=n%10;
+			n/=10;
+			d*=pow(10,len-1);
+			n+=d;
 		}
-		int d=n%10;
-		n/=10;
-		d*=pow(10,len-1);
-		n+=d;
+		
+		if(flag==0)
+			cout<<"yes"<<endl;
+		else
+			cout<<"no"<<endl;
 	}
-	
-	if(flag==0)
-		cout<<"yes"<<endl;
-	else
-		cout<<"no"<<endl;
-	
 	return 0;
 }
