@@ -29,7 +29,7 @@ int main()
 	{
 		int n;
 		cin>>n;
-		int len=ceil(log10(n));
+		int len=ceil(log10(n));		//to find number of digits
 		int i,flag=0;
 		
 		for(i=0;i<len;i++)
@@ -39,7 +39,7 @@ int main()
 				flag=1;
 				break;
 			}
-			int d=n%10;
+			int d=n%10;		//rotates the number
 			n/=10;
 			d*=pow(10,len-1);
 			n+=d;
